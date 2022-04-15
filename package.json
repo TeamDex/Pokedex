@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/TeamDex/Pokedex#readme",
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
     "@material-ui/styles": "^4.11.4",
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.3",
@@ -27,7 +29,9 @@
     "@mui/styles": "^5.5.3",
     "cors": "^2.8.5",
     "css-loader": "^6.7.1",
+    "emotion": "^11.0.0",
     "express": "^4.17.3",
+    "mongoose": "^6.2.10",
     "pg": "^8.7.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
