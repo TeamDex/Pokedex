@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './App.jsx';
-//test commit
+//test commits
 render(
   // <React.StrictMode>
   <App />,
