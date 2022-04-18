@@ -22,11 +22,11 @@ export default function Nav() {
             <MenuIcon />
           </IconButton>
           
-          <Button variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Button variant="h6" component="div" sx={{ width: '200px' }}>
           Home
           </Button>
           
-          <Button variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Button variant="h6" component="div" sx={{ width: '200px' }}>
             Pokemon
           </Button>
         </Toolbar>
