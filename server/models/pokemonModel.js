@@ -17,7 +17,7 @@ mongoose
 const Schema = mongoose.Schema;
 
 const pokemonSchema = new Schema({
-  id: String,
+  id: Number,
   name: String,
   height: String,
   weight: String,
