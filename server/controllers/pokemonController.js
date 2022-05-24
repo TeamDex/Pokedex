@@ -1,3 +1,4 @@
+const { withThemeCreator } = require('@material-ui/styles');
 const fetch = require('node-fetch');
 
 const models = require('../models/pokemonModel.js');
@@ -17,24 +18,26 @@ pokemonController.getPokemon = async (req, res, next) => {
     ]);
     const pData = await pokemonData.json();
     const sData = await speciesData.json();
-    
+
     let abilitiesData;
-    // if there is a 2nd ability, then assign both abilities 
-    if(pData.abilities[1].ability){
-    abilitiesData = [pData.abilities[0].ability.name,pData.abilities[1].ability.name] 
+    // if there is a 2nd ability, then assign both abilities
+    if (pData.abilities[1].ability) {
+      abilitiesData = [
+        pData.abilities[0].ability.name,
+        pData.abilities[1].ability.name,
+      ];
     } else {
-    // if there's only 1 ability, then only assign index 0
-    abilitiesData = [pData.abilities[0].ability.name]
+      // if there's only 1 ability, then only assign index 0
+      abilitiesData = [pData.abilities[0].ability.name];
     }
 
-      
     let typesData;
-    // if there is a 2nd ability, then assign both abilities 
-    if(pData.types[1].type.name){
-    typesData = [pData.types[0].type.name,pData.types[1].type.name] 
+    // if there is a 2nd ability, then assign both abilities
+    if (pData.types[1].type.name) {
+      typesData = [pData.types[0].type.name, pData.types[1].type.name];
     } else {
-    // if there's only 1 ability, then only assign index 0
-    typesData = [pData.types[0].type.name]
+      // if there's only 1 ability, then only assign index 0
+      typesData = [pData.types[0].type.name];
     }
 
     // consider types and abilities
@@ -46,14 +49,16 @@ pokemonController.getPokemon = async (req, res, next) => {
       weight: `${pData.weight} + kg`,
       abilities: abilitiesData,
       types: typesData,
-      animated_sprites: ,
-      hp: ,
-      attack: ,
-      defense: ,
-      special_attack: ,
-      secial_defense: ,
-      speed: ,
-    }; 
+      // for animated sprites, we want "front_default"
+      animated_sprites:
+        pData.generation - v.black - white.animated.front_default,
+      hp: pData.stats[0].base_stat,
+      attack: pData.stats[1].base_stat,
+      defense: pData.stats[2].base_stat,
+      special_attack: pData.stats[3].base_stat,
+      secial_defense: pData.stats[4].base_stat,
+      speed: pData.stats[5].base_stat,
+    };
   }
 };
 
