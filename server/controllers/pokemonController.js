@@ -50,15 +50,19 @@ pokemonController.getPokemon = async (req, res, next) => {
       abilities: abilitiesData,
       types: typesData,
       // for animated sprites, we want "front_default"
+      // note: linting settings are affecting line 54
       animated_sprites:
         pData.generation - v.black - white.animated.front_default,
       hp: pData.stats[0].base_stat,
       attack: pData.stats[1].base_stat,
       defense: pData.stats[2].base_stat,
       special_attack: pData.stats[3].base_stat,
-      secial_defense: pData.stats[4].base_stat,
+      special_defense: pData.stats[4].base_stat,
       speed: pData.stats[5].base_stat,
+      flavor_text: sData.flavor_text_entries[0].flavor_text,
     };
+    //create onto database
+    await Pokemon.create(pokemonSchema);
   }
 };
 
